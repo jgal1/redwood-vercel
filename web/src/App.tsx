@@ -9,17 +9,16 @@ import { AuthProvider, useAuth } from './auth'
 
 import './index.css'
 import './scaffold.css'
+import Routes from './Routes'
 
 
-interface AppProps {
-  children?: ReactNode
-}
 
-const App = ({ children }: AppProps) => (
+
+const App = () => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
       <AuthProvider>
-        <RedwoodApolloProvider useAuth={useAuth}>{children}</RedwoodApolloProvider>
+        <RedwoodApolloProvider useAuth={useAuth}><Routes/></RedwoodApolloProvider>
       </AuthProvider>
     </RedwoodProvider>
   </FatalErrorBoundary>
